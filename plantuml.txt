@@ -1,0 +1,19 @@
+@startuml
+Mastermind *--> Board
+Mastermind *--> Turn
+Turn --> Player
+Player *-> PutCombination
+Player --> SecretCombination
+PutCombination --> Board
+PutCombination --> Result
+Board o-> Row
+Row *--> Combination
+Combination o-->Ball
+Ball *--> Color
+interface Color
+SecretCombination *--> Combination
+Result *--Board
+Result --> SecretCombination
+Result *--> SecretRow
+SecretRow "2" o--> Combination
+@enduml
